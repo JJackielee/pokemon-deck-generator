@@ -1,6 +1,3 @@
-
-
-
 // pull 20-30 pokemons
 // pull 20 energy cards
 // pull 20 trainer
