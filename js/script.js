@@ -3,8 +3,7 @@
 
 // pull 20-30 pokemons
 // pull 20 energy cards
-// pull 8 supports cards
-// pull 12 trainer cards
+// pull 20 trainer
 
 
 
@@ -13,9 +12,9 @@
 
 
 var deckList= [];
-pullPokemon("Water",20);  
-pullEnergy("Water",20);
-pullTrainers(20);
+
+pullPokemon("Fire",20);
+
 
 console.log(deckList);
 
@@ -23,45 +22,50 @@ console.log(deckList);
 function pullPokemon(type,num){
     fetch('https://api.tcgdex.net/v2/en/cards/?stage=basic&types='+ type, {
     method: 'GET'
-
     })
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-
         var totalCards = data.length;
-        
         for(var i = 0; i < num; i++){
-            var randomCard = data[Math.floor(Math.random() * data.length)].name
+            var randomNum = Math.floor(Math.random() * data.length)
+            var randomCard = {
+                name: data[randomNum].name,
+                id: data[randomNum].id
+            } 
+            
             deckList.push(randomCard);
         }
-
+        pullEnergy("Fire",20);
     });
 }
 
 function pullEnergy(type,num){
     fetch('https://api.tcgdex.net/v2/en/cards/?category=energy', {
         method: 'GET'
-    
         })
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-    
             var totalCards = data.length;
-            
             for(var i = 0; i < num; i++){
                 var check = true;
                 while(check){
-                    var randomCard = data[Math.floor(Math.random() * data.length)].name
-                    if(randomCard.includes(type)){
+                    var randomNum = Math.floor(Math.random() * data.length)
+                    
+                    if(data[randomNum].name.includes(type)){
+                        var randomCard = {
+                            name: data[randomNum].name,
+                            id: data[randomNum].id
+                        } 
                         deckList.push(randomCard);
                         check = false;
                     }
                 }
             }
+            pullTrainers(20);
         });
     
 }
@@ -76,14 +80,39 @@ function pullTrainers(num){
         .then(function (data) {
             var totalCards = data.length;
             for(var i = 0; i < num; i++){
-                var randomCard = data[Math.floor(Math.random() * data.length)].name
+                var randomNum = Math.floor(Math.random() * data.length)
+                var randomCard = {
+                name: data[randomNum].name,
+                id: data[randomNum].id
+                }    
                 deckList.push(randomCard);
             }
+            saveDeck("jackies");
         });
 }
 
-  
+function getImageandPhoto(cardId){
+    fetch('https://api.pokemontcg.io/v2/cards/' + cardId , {
+        method: 'GET'
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data.data.images.small);
+            console.log(data.data.cardmarket.prices.averageSellPrice);
+        });
 
+}
+
+function saveDeck(name){
+    console.log(JSON.stringify(deckList));
+    localStorage.setItem(name,JSON.stringify(deckList));
+    var testThis = JSON.parse(localStorage.getItem(name));
+    console.log(testThis);
+    getImageandPhoto(deckList[0].id);
+
+}
 
 
 
