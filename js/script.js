@@ -102,6 +102,7 @@ function getImageandPhoto(cardId){
             console.log(data.data.images.small);
             console.log(data.data.cardmarket.prices.averageSellPrice);
         });
+<<<<<<< HEAD
 
 }
 
@@ -115,7 +116,19 @@ function saveDeck(name){
 }
 
   
+=======
+>>>>>>> 1d4d6f452c43fb0d0b6d7a85af490135360cd2ec
 
+}
+
+function saveDeck(name){
+    console.log(JSON.stringify(deckList));
+    localStorage.setItem(name,JSON.stringify(deckList));
+    var testThis = JSON.parse(localStorage.getItem(name));
+    console.log(testThis);
+    getImageandPhoto(deckList[0].id);
+
+}
 
 
 
