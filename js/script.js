@@ -1,12 +1,3 @@
-// pull 20-30 pokemons
-// pull 20 energy cards
-// pull 20 trainer
-
-
-
-
-
-
 
 var deckList= [];
 
@@ -88,16 +79,53 @@ function pullTrainers(num){
         });
 }
 
-function getImageandPhoto(cardId){
-    fetch('https://api.pokemontcg.io/v2/cards/' + cardId , {
+https://api.tcgdex.net/v2/en/cards/swsh3-136
+// https://api.pokemontcg.io/v2/cards/
+
+function getImageandPhoto(cardId,cardTitle){
+    fetch('https://api.tcgdex.net/v2/en/cards/' + cardId , {
         method: 'GET'
         })
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data.data.images.small);
-            console.log(data.data.cardmarket.prices.averageSellPrice);
+            // console.log(data.data.images.small);
+            // console.log(data.data.cardmarket.prices.averageSellPrice);
+
+
+            var deckContainer = $("#deck-list");
+            var deckCell = $('<div>');
+            deckCell.attr("class","cell");
+            var deckCard = $('<div>');
+            deckCard.attr("class","card");
+            var cardImg = $('<img>');
+            cardImg.attr("src",data.image + "/high.png");
+
+            var cardSection = $('<div>');
+            cardSection.attr("class","card-section");
+
+            var cardName = $('<p>')
+            cardName.text(cardTitle);
+
+            var cardPrice = $('<h3>');
+           // cardPrice.text(data.data.cardmarket.prices.averageSellPrice);
+            cardPrice.text("10");
+
+            var deleteButton = $('<button>');
+            deleteButton.attr("class","hollow button");
+            deleteButton.text("Delete This");
+
+            cardSection.append(cardName);
+            cardSection.append(cardPrice);
+            cardSection.append(deleteButton);
+
+            deckCard.append(cardImg);
+            deckCard.append(cardSection);
+            deckCell.append(deckCard);
+            deckContainer.append(deckCell);
+  
+
         });
 
 }
@@ -107,11 +135,44 @@ function saveDeck(name){
     localStorage.setItem(name,JSON.stringify(deckList));
     var testThis = JSON.parse(localStorage.getItem(name));
     console.log(testThis);
-    getImageandPhoto(deckList[0].id);
+    for(var i = 0; i<deckList.length;i++){
+        getImageandPhoto(deckList[i].id,deckList[i].name);
+    }
 
 }
 
+// function loadCards(){
+//     var deckContainer = $("#deck-list");
+//     var deckCell = $('<div>');
+//     deckCell.attr("class","cell");
+//     var deckCard = $('<div>');
+//     deckCard.attr("class","card");
+//     var cardImg = $('<img>');
+//     cardImg.attr("src",data.data.images.small);
 
+//     var cardSection = $('<div>');
+//     cardSection.attr("class","card-section");
+
+//     var cardName = $('<h2>')
+//     cardName.text(cardTitle);
+
+//     var cardPrice = $('<h3>');
+//     cardPrice.text(pricehere)
+
+//     var deleteButton = $('<button>');
+//     deleteButton.attr("class","hollow button");
+
+//     cardSection.append(cardName);
+//     cardSection.append(cardPrice);
+//     cardSection.append(deleteButton);
+
+//     deckCard.append(cardImg);
+//     deckCard.append(cardSection);
+//     deckCell.append(deckCard);
+//     deckContainer.append(deckCell);
+  
+    
+// }
 
 
 
