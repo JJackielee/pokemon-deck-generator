@@ -1,19 +1,4 @@
 
-//input value deck name
-//check box for type of deck chose
-//get an event listener that does somethign when button is clicked. 
-// when button is clicked then we'll grab input value for name and type.
-// store it in local storage/ 
-
-
-
-
-
-
-//get nameof deck and type and put it into a variable. 
-
-
-
 var deckList= [];
 
 pullPokemon("Fire",20);
