@@ -5,21 +5,21 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Deck Maker</title>
-    <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/foundation.css">
 </head>
     <body>
 
-    <section class="pokemon-roster">
+    <section class="pokemon-roster"> 
         <div class="box flex-container align-center-middle flex-dir-column">
     <h2>Name your deck </h2>
     <div>
     <input type="text" id="deck-name">
     
     </div>
-
+    <div class="pokemon-type">
     <div id="water">
-        <input id="pokemon1" name="decktype" type="radio">
+        <input id="pokemon1" name="decktype" type="radio" >
         <label for="pokemon1">Water Pokemon</label>
     </div>
     <div id="fire">
@@ -47,9 +47,10 @@
         <input id="pokemon7" name="decktype" type="radio">
         <label for="pokemon7">Rock Pokemon</label>
     </div>
-    <div id="darkness">
+    <div class="black" id="darkness">
         <input id="pokemon8" name="decktype" type="radio">
-        <label for="pokemon8">Darkness Pokemon</label>
+        <label for="pokemon8" style="color:white">Darkness Pokemon</label>
+        
     </div>
     <div id="fairy">
         <input id="pokemon9" name="decktype" type="radio">
@@ -62,6 +63,7 @@
     <div id="colorless">
         <input id="pokemon11" name="decktype" type="radio">
         <label for="pokemon11">Colorless Pokemon</label>
+    </div>
     </div>
         </div>
     </section>
