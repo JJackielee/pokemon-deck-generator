@@ -1,1 +1,48 @@
-/* test */
+#water {
+    background: #0af 
+}
+
+#fire {
+    background: #ff4040
+}
+
+#psychic {
+    background: #c0d
+}
+
+#lightning {
+    background: #fe0
+}
+
+#grass  {
+    background: #3b3;
+}
+
+#dragon {
+    background: #c49f1a;
+}
+
+#rock {
+    background: #c72;
+}
+
+#darkness {
+       background: #333;
+       color: white;
+}
+
+#fairy {
+    background: #e03a83;
+}
+
+#metal {
+    background: silver;
+}
+
+#colorless {
+    background: #f0f0f0;
+}
+
+#label-pokemon8 {
+    
+}
