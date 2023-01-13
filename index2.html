@@ -1,75 +1,80 @@
-
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
+    <title>Pokemon Deck Maker</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
     <body>
 
     <section class="pokemon-roster">
-
+        <div class="box flex-container align-center-middle flex-dir-column">
     <h2>Name your deck </h2>
     <div>
     <input type="text" id="deck-name">
-    <button id="pokemon-button">Submit</button>
     
     </div>
 
-    <div>
-        <input id="pokemon1" type="checkbox">
+    <div id="water">
+        <input id="pokemon1" name="decktype" type="radio">
         <label for="pokemon1">Water Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon2" type="checkbox">
+    <div id="fire">
+        <input id="pokemon2" name="decktype" type="radio">
         <label for="pokemon2">Fire Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon3" type="checkbox">
+    <div id="psychic">
+        <input id="pokemon3" name="decktype" type="radio">
         <label for="pokemon3">Psych Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon4" type="checkbox">
+    <div id="lightning">
+        <input id="pokemon4" name="decktype" type="radio">
         <label for="pokemon4">Lightning Pokemon</label>
     </div>
 
-    <div>
-        <input id="pokemon5" type="checkbox">
+    <div id="grass">
+        <input id="pokemon5" name="decktype" type="radio">
         <label for="pokemon5">Grass Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon6" type="checkbox">
+    <div id="dragon">
+        <input id="pokemon6" name="decktype" type="radio">
         <label for="pokemon6">Dragon Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon7" type="checkbox">
+    <div id="rock">
+        <input id="pokemon7" name="decktype" type="radio">
         <label for="pokemon7">Rock Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon8" type="checkbox">
+    <div id="darkness">
+        <input id="pokemon8" name="decktype" type="radio">
         <label for="pokemon8">Darkness Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon9" type="checkbox">
+    <div id="fairy">
+        <input id="pokemon9" name="decktype" type="radio">
         <label for="pokemon9">Fairy Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon10" type="checkbox">
+    <div id="metal">
+        <input id="pokemon10" name="decktype" type="radio">
         <label for="pokemon10">Metal Pokemon</label>
     </div>
-    <div>
-        <input id="pokemon11" type="checkbox">
+    <div id="colorless">
+        <input id="pokemon11" name="decktype" type="radio">
         <label for="pokemon11">Colorless Pokemon</label>
+    </div>
+        </div>
+    </section>
+
+    <section class="pokemon-generate">
+        <div class="box flex-container align-center-middle flex-dir-column">
+        <button type="button" class="button social facebook">Submit</button> 
+    
+    
     </div>
     </section>
 
-    <section class="">
-
-    </section>
+    
 
 
 
@@ -77,6 +82,5 @@
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
     <script src="js/app.js"></script>
-    <script src="./js/script2.js"></script>
   </body>
 </html>
