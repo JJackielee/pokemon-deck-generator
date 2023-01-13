@@ -1,13 +1,16 @@
 
+//input value deck name
+//check box for type of deck chose
+//get an event listener that does somethign when button is clicked. 
+// when button is clicked then we'll grab input value for name and type.
+// store it in local storage/ 
 
 
-// pull 20-30 pokemons
-// pull 20 energy cards
-// pull 20 trainer
 
 
 
 
+//get nameof deck and type and put it into a variable. 
 
 
 
@@ -102,7 +105,6 @@ function getImageandPhoto(cardId){
             console.log(data.data.images.small);
             console.log(data.data.cardmarket.prices.averageSellPrice);
         });
-<<<<<<< HEAD
 
 }
 
@@ -116,20 +118,6 @@ function saveDeck(name){
 }
 
   
-=======
->>>>>>> 1d4d6f452c43fb0d0b6d7a85af490135360cd2ec
-
-}
-
-function saveDeck(name){
-    console.log(JSON.stringify(deckList));
-    localStorage.setItem(name,JSON.stringify(deckList));
-    var testThis = JSON.parse(localStorage.getItem(name));
-    console.log(testThis);
-    getImageandPhoto(deckList[0].id);
-
-}
-
 
 
 
