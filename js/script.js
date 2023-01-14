@@ -112,16 +112,34 @@ function loadCards(){
         cardName.text(deckList[i].name);
 
         var cardPrice = $('<h3>');
-    // cardPrice.text(data.data.cardmarket.prices.averageSellPrice);
+        // cardPrice.text(data.data.cardmarket.prices.averageSellPrice);
         // cardPrice.text("10");
 
-        // var deleteButton = $('<button>');
-        // deleteButton.attr("class","hollow button");
-        // deleteButton.text("Delete This");
+        var deleteButton = $('<button>');
+        deleteButton.attr("class","hollow button");
+        deleteButton.text("Delete This");
+        deleteButton.on("click", function(){
+            console.log($(this).parent().parent().parent().index())
+            deckList.splice($(this).parent().parent().parent().index(), 1);
+            $(this).parent().parent().parent().remove();
+            console.log(deckList);
+
+        });
+
+
+        var infoButton = $('<button>');
+        infoButton.attr("class","hollow button");
+        infoButton.text("More Info");
+        infoButton.attr("data-id",deckList[i].id);
+        infoButton.on("click", function(){
+            getInfo($(this).attr("data-id"));
+
+        });
 
         cardSection.append(cardName);
         // cardSection.append(cardPrice);
-        // cardSection.append(deleteButton);
+        cardSection.append(deleteButton);
+        cardSection.append(infoButton);
 
         deckCard.append(cardImg);
         deckCard.append(cardSection);
@@ -142,7 +160,20 @@ function getType(){
 
 }
 
+function getInfo(cardId){
+    fetch('https://api.pokemontcg.io/v2/cards/' + cardId , {
+        method: 'GET'
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
 
+
+
+        });
+}
 
 
 
