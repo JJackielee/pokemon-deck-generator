@@ -16,6 +16,7 @@ btn.addEventListener("click", function(){
     console.log(deckName);
     console.log(deckType);
     localStorage.setItem("deck",deckType);
+    localStorage.setItem("deckName",deckName);
     //pullPokemon(deckType,20);
     location.href = "generators.html";
     

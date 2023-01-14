@@ -152,6 +152,8 @@ function loadCards(){
 
 function getType(){
     pokeType = localStorage.getItem("deck");
+    pokeName= localStorage.getItem("deckName");
+    $("#deckName").text(pokeName);
     if(localStorage.getItem("deck") == ""){
         console.log("there's nothing here");
     } else {
