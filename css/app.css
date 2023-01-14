@@ -1,5 +1,5 @@
 #water {
-    background: #0af 
+    background: #0af
 }
 
 #fire {
@@ -43,3 +43,10 @@
     background: #f0f0f0;
 }
 
+body {
+    background-color:  
+}
+
+header {
+    height: 5vh;
+}
