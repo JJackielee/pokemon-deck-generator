@@ -1,3 +1,28 @@
+body {
+    background-image: url("https://cdn.wallpapersafari.com/0/52/7t85ML.jpg")
+}
+
+h2 {
+    color:white;
+    background:black;
+}
+
+
+.pokemon-type {
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 10pt;
+    border-color: grey;
+    background-color: black;
+
+}
+
+.listlook {
+    
+    border-radius: 30px;
+    
+
+}
 #water {
     background: #0af
 }
@@ -28,7 +53,7 @@
 
 #darkness {
        background: #333;
-       color: white;
+
 }
 
 #fairy {
