@@ -7,6 +7,104 @@ h2 {
     background:black;
 }
 
+h1 {
+    margin-left: 15px;
+}
+
+.heading {
+    color: white;
+    background: blue;
+    background: linear-gradient( rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    padding: 5px;
+}
+.orbit-slide {
+    /* background-color: orange; */
+    position: absolute;
+    padding: 8px;
+    width: 80%;
+    margin-left: 5vw;
+    border: 2px solid black;
+}
+
+.orbit-image {
+    padding: 0px;
+    margin: 0px;
+}
+
+h3 {
+    color:white;
+    text-align: center;
+}
+
+.test-card {
+    display: inline-block;
+    border: 2px solid blue;
+    height: 450px;
+    background-color: blue;
+    background: linear-gradient( rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    max-width: 200px;
+    margin-left: 10px;
+    /* flex-direction: column; */
+    margin-top: 10px;
+    padding: 0px;
+}
+
+.test-button, .info-button {
+    position: relative;
+    color: white;
+    width: 110px;
+    left: 50px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* align-content: center; */
+    /* flex-direction: column; */
+    /* border: 2px solid white; */
+}
+
+.test-button:hover {
+    box-shadow: 0px 0px 5px 5px white;
+}
+
+.info-button:hover {
+    box-shadow: 0px 0px 5px 5px white;
+}
+
+img:hover {
+    box-shadow: 0px 0px 5px 5px white;
+}
+
+.orbit-bullets:hover {
+    box-shadow: 0px 0px 5px 5px white;
+}
+
+.orbit-bullets {
+    position: relative;
+    background-color: blue;
+    background: linear-gradient( rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    max-width: 300px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 2px;
+
+}
+
+.test-button {
+    position: relative;
+    top: 10px;
+}
+
+.more-info {
+    position: relative;
+    top: 55px;
+    padding: 0px;
+}
+
+.span-container {
+    height: 650px;
+    top: 450px;
+}
+
 
 .pokemon-type {
     border-style: solid;
@@ -68,9 +166,6 @@ h2 {
     background: #f0f0f0;
 }
 
-body {
-    background-color:  
-}
 
 header {
     height: 5vh;
