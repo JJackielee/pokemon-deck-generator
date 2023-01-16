@@ -161,6 +161,8 @@ function getType(){
     } else {
         pullPokemon(pokeType,20);
     }
+    var colorDiv = localStorage.getItem("color");
+    document.body.id = colorDiv;
 
 }
 
