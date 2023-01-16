@@ -130,8 +130,10 @@ function loadCards(){
         var infoButton = $('<button>');
         infoButton.attr("class","hollow button");
         infoButton.text("More Info");
+        infoButton.attr("data-open","exampleModal1");
         infoButton.attr("data-id",deckList[i].id);
         infoButton.on("click", function(){
+            console.log($(this).parent().parent().children().attr("src"));
             getInfo($(this).attr("data-id"));
 
         });
