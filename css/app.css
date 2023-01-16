@@ -1,10 +1,15 @@
-body {
-    background-image: url("https://cdn.wallpapersafari.com/0/52/7t85ML.jpg")
-}
 
 h2 {
     color:white;
     background:black;
+}
+
+input {
+    visibility:hidden;
+}
+
+input:checked + label {
+    background: highlight;
 }
 
 h1 {
@@ -105,12 +110,20 @@ img:hover {
     top: 450px;
 }
 
+.pokemon-roster {
+    font-size: 40px;
+    font-family: 'Chivo Mono', monospace;
+    ;
+    
 
+
+}
 .pokemon-type {
+    width: 400px;
     border-style: solid;
     border-radius: 10px;
     border-width: 10pt;
-    border-color: grey;
+    border-color: black;
     background-color: black;
 
 }
