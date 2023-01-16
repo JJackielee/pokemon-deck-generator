@@ -105,6 +105,10 @@ img:hover {
     top: 450px;
 }
 
+.form-container {
+    width: 65%;
+
+}
 
 .pokemon-type {
     border-style: solid;
@@ -115,6 +119,7 @@ img:hover {
 
 }
 
+
 .listlook {
     
     border-radius: 30px;
@@ -123,6 +128,7 @@ img:hover {
 }
 #water {
     background: #0af
+    
 }
 
 #fire {
