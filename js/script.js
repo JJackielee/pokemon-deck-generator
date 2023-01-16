@@ -1,7 +1,34 @@
 
 var deckList= [];
 var pokeType = "";
+var colorDiv = "";
+var pokeName = "";
+var saveDeckList = JSON.parse(localStorage.getItem("savedDeck")) || [];
+var saveDeckName = JSON.parse(localStorage.getItem("savedDeckName")) || [];
+
 getType();
+loadDeckButtons();
+
+
+$("#saveBtn").on("click",function(){
+    if(saveDeckName.includes(pokeName)){
+        console.log("already deck");
+
+    } else{
+        var newDeck = {
+            name: pokeName,
+            cards: deckList,
+            type: colorDiv
+        }
+        saveDeckList.push(newDeck);
+        saveDeckName.push(pokeName);
+        loadDeckButtons()
+        localStorage.setItem("savedDeck",JSON.stringify(saveDeckList));
+        localStorage.setItem("savedDeckName",JSON.stringify(saveDeckName));
+    }   
+});
+
+
 
 function pullPokemon(type,num){
     fetch('https://api.tcgdex.net/v2/en/cards/?stage=basic&types='+ type, {
@@ -58,7 +85,6 @@ function pullEnergy(type,num){
             }
             pullTrainers(20);
         });
-    
 }
 
 function pullTrainers(num){
@@ -91,13 +117,11 @@ function pullTrainers(num){
 }
 
 
-
-//-------------------------------------------------------------------------------
-
 function loadCards(){
-
+    var deckContainer = $("#deck-list");
+    deckContainer.empty();
     for(var i = 0; i< deckList.length; i++ ){
-        var deckContainer = $("#deck-list");
+       
         var deckCell = $('<div>');
         deckCell.attr("class","cell");
         var deckCard = $('<div>');
@@ -105,44 +129,37 @@ function loadCards(){
         var cardImg = $('<img>');
         cardImg.attr("src",deckList[i].image);
 
-        var cardSection = $('<div>');
-        cardSection.attr("class","card-section");
+        // var deleteButton = $('<button>');
+        // deleteButton.attr("class","hollow button");
+        // deleteButton.text("Delete This");
+        // deleteButton.on("click", function(){
+        //     console.log($(this).parent().parent().parent().index())
+        //     deckList.splice($(this).parent().parent().parent().index(), 1);
+        //     $(this).parent().parent().parent().remove();
+        //     console.log(deckList);
 
-        var cardName = $('<p>')
-        cardName.text(deckList[i].name);
-
-        var cardPrice = $('<h3>');
-        // cardPrice.text(data.data.cardmarket.prices.averageSellPrice);
-        // cardPrice.text("10");
-
-        var deleteButton = $('<button>');
-        deleteButton.attr("class","hollow button");
-        deleteButton.text("Delete This");
-        deleteButton.on("click", function(){
-            console.log($(this).parent().parent().parent().index())
-            deckList.splice($(this).parent().parent().parent().index(), 1);
-            $(this).parent().parent().parent().remove();
-            console.log(deckList);
-
-        });
+        // });
 
 
         var infoButton = $('<button>');
-        infoButton.attr("class","hollow button");
+        infoButton.attr("class","button small medium-expanded");
         infoButton.text("More Info");
+        infoButton.attr("data-open","exampleModal1");
         infoButton.attr("data-id",deckList[i].id);
+        infoButton.attr("data-img",deckList[i].image);
+        infoButton.attr("data-name",deckList[i].name);
         infoButton.on("click", function(){
-            getInfo($(this).attr("data-id"));
+            console.log($(this).parent().parent().children().attr("src"));
+            getInfo($(this).attr("data-id"),$(this).attr("data-img"),$(this).attr("data-name"));
 
         });
 
-        cardSection.append(cardName);
-        // cardSection.append(cardPrice);
-        cardSection.append(deleteButton);
-        cardSection.append(infoButton);
+
+        
 
         deckCard.append(cardImg);
-        deckCard.append(cardSection);
+        deckCard.append(infoButton);
+       
         deckCell.append(deckCard);
         deckContainer.append(deckCell);
     }
@@ -155,14 +172,15 @@ function getType(){
     pokeName= localStorage.getItem("deckName");
     $("#deckName").text(pokeName);
     if(localStorage.getItem("deck") == ""){
-        console.log("there's nothing here");
+        location.href="./index.html";
     } else {
         pullPokemon(pokeType,20);
     }
-
+    colorDiv = localStorage.getItem("color");
+    document.body.id = colorDiv;
 }
 
-function getInfo(cardId){
+function getInfo(cardId,imgUrl,cardName){
     fetch('https://api.pokemontcg.io/v2/cards/' + cardId , {
         method: 'GET'
         })
@@ -171,10 +189,36 @@ function getInfo(cardId){
         })
         .then(function (data) {
             console.log(data);
-
-
-
+            $("#modalName").text(cardName);
+            $("#pokemonPic").attr("src",imgUrl);
+            if(data.data.cardmarket.prices.averageSellPrice == undefined){
+                $("#price").text("Card price is unavaliable");
+            } else {
+                $("#price").text(data.data.cardmarket.prices.averageSellPrice);
+            }
         });
+}
+
+function loadDeckButtons(){
+    var btnGroup = $("#btnGroup");
+    btnGroup.empty();
+
+    for(var i = 0 ; i < saveDeckList.length; i++){
+        var oldButton = $('<button>');
+        oldButton.attr("deckIndex", i);
+        oldButton.addClass("button primary radius");
+        oldButton.text(saveDeckList[i].name);
+        oldButton.on("click", function(){
+            console.log(saveDeckList);
+            console.log($(this).attr("deckIndex"));
+            deckList = saveDeckList[$(this).attr("deckIndex")].cards;
+            var colorDiv = saveDeckList[$(this).attr("deckIndex")].type;
+            document.body.id = colorDiv;
+            $("#deckName").text(saveDeckList[$(this).attr("deckIndex")].name);
+            loadCards();
+        });
+        btnGroup.append(oldButton);
+    }  
 }
 
 
@@ -187,167 +231,3 @@ function getInfo(cardId){
 
 
 
-
-
-
-
-
-//https://api.tcgdex.net/v2/en/cards/swsh3-136
-// https://api.pokemontcg.io/v2/cards/
-
-// function getImageandPhoto(cardId,cardTitle){
-//     fetch('https://api.tcgdex.net/v2/en/cards/' + cardId , {
-//         method: 'GET'
-//         })
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             // console.log(data.data.images.small);
-//             // console.log(data.data.cardmarket.prices.averageSellPrice);
-
-
-//             var deckContainer = $("#deck-list");
-//             var deckCell = $('<div>');
-//             deckCell.attr("class","cell");
-//             var deckCard = $('<div>');
-//             deckCard.attr("class","card");
-//             var cardImg = $('<img>');
-//             cardImg.attr("src",data.image + "/high.png");
-
-//             var cardSection = $('<div>');
-//             cardSection.attr("class","card-section");
-
-//             var cardName = $('<p>')
-//             cardName.text(cardTitle);
-
-//             var cardPrice = $('<h3>');
-//            // cardPrice.text(data.data.cardmarket.prices.averageSellPrice);
-//             cardPrice.text("10");
-
-//             var deleteButton = $('<button>');
-//             deleteButton.attr("class","hollow button");
-//             deleteButton.text("Delete This");
-
-//             cardSection.append(cardName);
-//             cardSection.append(cardPrice);
-//             cardSection.append(deleteButton);
-
-//             deckCard.append(cardImg);
-//             deckCard.append(cardSection);
-//             deckCell.append(deckCard);
-//             deckContainer.append(deckCell);
-  
-
-//         });
-
-// }
-
-// function saveDeck(name){
-//     console.log(JSON.stringify(deckList));
-//     localStorage.setItem(name,JSON.stringify(deckList));
-//     var testThis = JSON.parse(localStorage.getItem(name));
-//     console.log(testThis);
-//     for(var i = 0; i<deckList.length;i++){
-//         getImageandPhoto(deckList[i].id,deckList[i].name);
-//     }
-//     localStorage.setItem("deck","");
-
-// }
-
-
-
-
-
-
-
-
-
-
-// function grabData(){
-//     var pokemonList = JSON.parse(localStorage.getItem("pokemon"));
-//     var energyList = JSON.parse(localStorage.getItem("energy"));
-//     var trainerList = JSON.parse(localStorage.getItem("trainer"));
-
-//     deckList = pokemonList.concat(energyList,trainerList);
-//     console.log(pokemonList);
-//     console.log(trainerList);
-//     console.log(energyList);
-//     console.log(deckList);
-//     loadCards();
-    
-// }
-
-// function loadCards(){
-
-//     for(var i = 0; i< deckList.length; i++ ){
-//         var deckContainer = $("#deck-list");
-//         var deckCell = $('<div>');
-//         deckCell.attr("class","cell");
-//         var deckCard = $('<div>');
-//         deckCard.attr("class","card");
-//         var cardImg = $('<img>');
-//         cardImg.attr("src",deckList[i].imageLink);
-
-//         var cardSection = $('<div>');
-//         cardSection.attr("class","card-section");
-
-//         var cardName = $('<p>')
-//         cardName.text(deckList[i].name);
-
-//         var cardPrice = $('<h3>');
-//     // cardPrice.text(data.data.cardmarket.prices.averageSellPrice);
-//         cardPrice.text("10");
-
-//         var deleteButton = $('<button>');
-//         deleteButton.attr("class","hollow button");
-//         deleteButton.text("Delete This");
-
-//         cardSection.append(cardName);
-//         cardSection.append(cardPrice);
-//         cardSection.append(deleteButton);
-
-//         deckCard.append(cardImg);
-//         deckCard.append(cardSection);
-//         deckCell.append(deckCard);
-//         deckContainer.append(deckCell);
-//     }
-  
-    
-// }
-
-
-
-
-
-
-
-
-
-
-// var allCards = [];
-// function getAllCards(){
-    
-//     for(var i = 1; i<63; i++){
-//         fetch('https://api.pokemontcg.io/v2/cards/?page=' + i, {
-//             method: 'GET'
-          
-//           })
-//             .then(function (response) {
-//               return response.json();
-//             })
-//             .then(function (data) {
-//                 console.log(data.data[0]);
-//                 console.log("does this work?")
-        
-          
-//             });
-//     }
-// console.log(allCards);
-
-
-
-
-// }
-
-// getAllCards();

@@ -11,65 +11,65 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap" rel="stylesheet">
 </head>
-    
+    <body>
     <section class="pokemon-roster"> 
         <div class="grid-x grid-padding-x align-center-middle flex-dir-column text-center">
             <h2>Name your deck </h2>
         <div>
-        <input type="text" id="deck-name">
+        <input type="text" id="deck-name" placeholder="Please name your deck!">
     
-        <div>
+        <form>
             <div class="pokemon-type">
                 <div id="water">
-                    <input value="Water" id="pokemon1" name="decktype" type="radio" >
+                    <input value="Water" data-div="water" name="decktype" type="radio" >
                     <label for="pokemon1">Water Pokemon</label>
                 </div>
                 <div id="fire">
-                    <input value="Fire" id="pokemon2" name="decktype" type="radio">
+                    <input value="Fire" data-div="fire" name="decktype" type="radio">
                     <label for="pokemon2">Fire Pokemon</label>
                 </div>
                 <div id="psychic">
-                    <input value="Psychic" id="pokemon3" name="decktype" type="radio">
+                    <input value="Psychic" data-div="psychic" name="decktype" type="radio">
                     <label for="pokemon3">Psych Pokemon</label>
                 </div>
                 <div id="lightning">
-                    <input value="Lightning" id="pokemon4" name="decktype" type="radio">
+                    <input value="Lightning" data-div="lightning" name="decktype" type="radio">
                     <label for="pokemon4">Lightning Pokemon</label>
                 </div>
 
                 <div id="grass">
-                    <input value="Grass" id="pokemon5" name="decktype" type="radio">
+                    <input value="Grass" data-div="grass" name="decktype" type="radio">
                     <label for="pokemon5">Grass Pokemon</label>
                 </div>
                 
-                <div id="rock">
-                    <input value="Fighting" id="pokemon7" name="decktype" type="radio">
+                <div id="fighting">
+                    <input value="Fighting" data-div="fighting" name="decktype" type="radio">
                     <label for="pokemon7">Rock Pokemon</label>
                 </div>
-                <div class="black" id="darkness">
-                    <input value="Dark" id="pokemon8" name="decktype" type="radio">
+                <div id="dark">
+                    <input value="Dark" data-div="dark" name="decktype" type="radio">
                     <label for="pokemon8" style="color:white">Darkness Pokemon</label>
                     
                 </div>
                 <div id="fairy">
-                    <input value="Fairy" id="pokemon9" name="decktype" type="radio">
+                    <input value="Fairy" data-div="fairy" name="decktype" type="radio">
                     <label for="pokemon9">Fairy Pokemon</label>
                 </div>
                 <div id="metal">
-                    <input value="Metal" id="pokemon10" name="decktype" type="radio">
+                    <input value="Metal" data-div="metal" name="decktype" type="radio">
                     <label for="pokemon10">Metal Pokemon</label>
                 </div>
                 <div id="colorless">
-                    <input value="Colorless" id="pokemon11" name="decktype" type="radio">
+                    <input value="Colorless" data-div="colorless" name="decktype" type="radio">
                     <label for="pokemon11">Colorless Pokemon</label>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
 
     <section class="pokemon-generate">
         <div class="box flex-container align-center-middle flex-dir-column">
-        <button id="pokemon-button" type="button" class="button social facebook">Submit</button> 
+        <button id="pokemon-button" type="button" data-open="exampleModal1" class="button social facebook">Submit</button> 
     
     
     </div>
