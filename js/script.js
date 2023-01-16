@@ -105,46 +105,49 @@ function loadCards(){
         var cardImg = $('<img>');
         cardImg.attr("src",deckList[i].image);
 
-        var cardSection = $('<div>');
-        cardSection.attr("class","card-section");
+        // var cardSection = $('<div>');
+        // cardSection.attr("class","card-section");
 
-        var cardName = $('<p>')
-        cardName.text(deckList[i].name);
+        // var cardName = $('<p>')
+        // cardName.text(deckList[i].name);
 
-        var cardPrice = $('<h3>');
+        // var cardPrice = $('<h3>');
         // cardPrice.text(data.data.cardmarket.prices.averageSellPrice);
         // cardPrice.text("10");
 
-        var deleteButton = $('<button>');
-        deleteButton.attr("class","hollow button");
-        deleteButton.text("Delete This");
-        deleteButton.on("click", function(){
-            console.log($(this).parent().parent().parent().index())
-            deckList.splice($(this).parent().parent().parent().index(), 1);
-            $(this).parent().parent().parent().remove();
-            console.log(deckList);
+        // var deleteButton = $('<button>');
+        // deleteButton.attr("class","hollow button");
+        // deleteButton.text("Delete This");
+        // deleteButton.on("click", function(){
+        //     console.log($(this).parent().parent().parent().index())
+        //     deckList.splice($(this).parent().parent().parent().index(), 1);
+        //     $(this).parent().parent().parent().remove();
+        //     console.log(deckList);
 
-        });
+        // });
 
 
         var infoButton = $('<button>');
-        infoButton.attr("class","hollow button");
+        infoButton.attr("class","button small medium-expanded");
         infoButton.text("More Info");
         infoButton.attr("data-open","exampleModal1");
         infoButton.attr("data-id",deckList[i].id);
+        infoButton.attr("data-img",deckList[i].image);
+        infoButton.attr("data-name",deckList[i].name);
         infoButton.on("click", function(){
             console.log($(this).parent().parent().children().attr("src"));
-            getInfo($(this).attr("data-id"));
+            getInfo($(this).attr("data-id"),$(this).attr("data-img"),$(this).attr("data-name"));
 
         });
 
-        cardSection.append(cardName);
-        // cardSection.append(cardPrice);
-        cardSection.append(deleteButton);
-        cardSection.append(infoButton);
+        // cardSection.append(cardName);
+        // // cardSection.append(cardPrice);
+        // cardSection.append(deleteButton);
+        
 
         deckCard.append(cardImg);
-        deckCard.append(cardSection);
+        deckCard.append(infoButton);
+        // deckCard.append(cardSection);
         deckCell.append(deckCard);
         deckContainer.append(deckCell);
     }
@@ -166,7 +169,7 @@ function getType(){
 
 }
 
-function getInfo(cardId){
+function getInfo(cardId,imgUrl,cardName){
     fetch('https://api.pokemontcg.io/v2/cards/' + cardId , {
         method: 'GET'
         })
@@ -175,13 +178,18 @@ function getInfo(cardId){
         })
         .then(function (data) {
             console.log(data);
+            $("#modalName").text(cardName);
+            $("#pokemonPic").attr("src",imgUrl);
+            if(data.data.cardmarket.prices.averageSellPrice == undefined){
+                $("#price").text("Card price is unavaliable");
+            } else {
+                $("#price").text(data.data.cardmarket.prices.averageSellPrice);
+            }
 
 
 
         });
 }
-
-
 
 
 
