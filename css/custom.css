@@ -75,14 +75,13 @@
   .button-group-option .button + .button {
     margin-left: 0.35rem;
   }
-  
-  Similar Building Blocks
-  CONTROL
-  Hover Like Button
-  F6
-   By Rafi
-  CONTROL
-  Simple Content Filter
-  F6
-   By Rafi
-  
+
+  #deckName {
+    color:white;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  #gradientH{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,124,114,1) 19%, rgba(9,105,121,1) 53%, rgba(5,155,184,1) 72%, rgba(0,212,255,1) 100%);
+  }

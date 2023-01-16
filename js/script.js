@@ -149,7 +149,6 @@ function loadCards(){
         infoButton.attr("data-img",deckList[i].image);
         infoButton.attr("data-name",deckList[i].name);
         infoButton.on("click", function(){
-            console.log($(this).parent().parent().children().attr("src"));
             getInfo($(this).attr("data-id"),$(this).attr("data-img"),$(this).attr("data-name"));
 
         });
@@ -191,7 +190,7 @@ function getInfo(cardId,imgUrl,cardName){
             console.log(data);
             $("#modalName").text(cardName);
             $("#pokemonPic").attr("src",imgUrl);
-            if(data.data.cardmarket.prices.averageSellPrice == undefined){
+            if(data.data.cardmarket == undefined){
                 $("#price").text("Card price is unavaliable");
             } else {
                 $("#price").text(data.data.cardmarket.prices.averageSellPrice);
