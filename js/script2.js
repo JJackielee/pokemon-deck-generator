@@ -22,7 +22,7 @@ btn.addEventListener("click", function(){
     localStorage.setItem("deckName",deckName);
     //pullPokemon(deckType,20);
     location.href = "generators.html";
-        
+    
 })
 
 const form = document.querySelector("form");
