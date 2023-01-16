@@ -6,9 +6,14 @@ h2 {
     color: #3B4CCA;
 }
 
-/* input {
+input {
     visibility:hidden;
-} */
+}
+
+#deck-name {
+    visibility: visible;
+
+}
 
 input:checked + label {
     /* background: highlight; */
