@@ -7,9 +7,9 @@ h2 {
     background:black;
 }
 
-input {
+/* input {
     visibility:hidden;
-}
+} */
 
 input:checked + label {
     background: highlight;
