@@ -3,16 +3,20 @@ body {
 }
 
 h2 {
-    color:white;
-    background:black;
+    color: #3B4CCA;
 }
 
-/* input {
+input {
     visibility:hidden;
-} */
+}
+
+#deck-name {
+    visibility: visible;
+
+}
 
 input:checked + label {
-    background: highlight;
+    /* background: highlight; */
 }
 
 h1 {
@@ -116,18 +120,22 @@ img:hover {
 .pokemon-roster {
     font-size: 40px;
     font-family: 'Chivo Mono', monospace;
-    ;
-    
+    margin-bottom: 10px;
+}
 
+.form-container {
+    width: 35%;
 
 }
+
 .pokemon-type {
-    width: 400px;
+    /* width: 400px; */
     border-style: solid;
     border-radius: 10px;
-    border-width: 10pt;
-    border-color: black;
-    background-color: black;
+    border-width: 5px;
+    border-color: #3B4CCA;
+    background-color: #3B4CCA;
+    padding: 4px;
 
 }
 
