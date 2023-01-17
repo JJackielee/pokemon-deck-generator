@@ -132,9 +132,10 @@ img:hover {
     /* width: 400px; */
     border-style: solid;
     border-radius: 10px;
-    border-width: 10pt;
-    border-color: black;
-    background-color: black;
+    border-width: 5px;
+    border-color: #3B4CCA;
+    background-color: #3B4CCA;
+    padding: 4px;
 
 }
 
