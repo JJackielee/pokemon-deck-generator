@@ -1,9 +1,11 @@
 body {
     background-image: url("https://cdn.discordapp.com/attachments/968010917843435553/1064016049382625343/pikachu.jpg");
+    
 }
 
 h2 {
     color: #3B4CCA;
+    font-family: 'Chivo Mono', monospace;
 }
 
 input {
@@ -15,6 +17,7 @@ input {
 
 }
 
+
 input:checked + label {
     /* background: highlight; */
 }
@@ -23,6 +26,9 @@ h1 {
     margin-left: 15px;
 }
 
+#saveBtn {
+    font-family: 'Chivo Mono', monospace;
+}
 .heading {
     color: white;
     background: blue;
@@ -100,6 +106,9 @@ img:hover {
     padding: 2px;
 
 }
+.card {
+    font-family: 'Chivo Mono', monospace;
+}
 
 .test-button {
     position: relative;
@@ -123,6 +132,10 @@ img:hover {
     margin-bottom: 10px;
 }
 
+#modalName {
+    font-family: 'Chivo Mono', monospace;
+    
+}
 .form-container {
     width: 35%;
 
@@ -189,7 +202,14 @@ img:hover {
     background: #f0f0f0;
 }
 
+#pokemon-button {
+    font-family: 'Chivo Mono', monospace;
+}
 
 header {
     height: 5vh;
+}
+
+#deckName {
+    font-family: 'Chivo Mono', monospace;
 }
