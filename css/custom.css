@@ -85,3 +85,13 @@
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,124,114,1) 19%, rgba(9,105,121,1) 53%, rgba(5,155,184,1) 72%, rgba(0,212,255,1) 100%);
   }
+
+  #exampleModal1 {
+    background-color: #FFF9CD;
+    width: 500px;
+    padding: 5px;
+}
+
+#saveBtn {
+  
+}
