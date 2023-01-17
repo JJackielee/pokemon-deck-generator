@@ -5,21 +5,26 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Deck Maker</title>
+<!--Style sheets linked.-->    
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--Google font linked.-->
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap" rel="stylesheet">
 </head>
     <body>
+<!--Header with application name and input for naming each deck.-->       
     <section class="pokemon-roster">
         <div class="grid-x grid-padding-x align-center-middle flex-dir-column text-center">
             <h2>Pokémon Deck Generator</h2>
         <div class="form-container">
         <input type="text" id="deck-name" placeholder="Please name your deck!">
     
+<!--Below is a form that contains a set radio buttons.-->
         <form>
             <div class="pokemon-type">
+<!--Radion buttons inside each div that correspond to a unique pokemon types.-->
                 <div id="water">
                     <input value="Water" id="pokemon1" data-div="water" name="decktype" type="radio" >
                     <label for="pokemon1">Water Pokemon</label>
@@ -30,18 +35,16 @@
                 </div>
                 <div id="psychic">
                     <input value="Psychic" id="pokemon3" data-div="psychic" name="decktype" type="radio">
-                    <label for="pokemon3">Psych Pokemon</label>
+                    <label for="pokemon3">Psychic Pokemon</label>
                 </div>
                 <div id="lightning">
                     <input value="Lightning" id="pokemon4" data-div="lightning" name="decktype" type="radio">
                     <label for="pokemon4">Lightning Pokemon</label>
                 </div>
-
                 <div id="grass">
                     <input value="Grass" id="pokemon5" data-div="grass" name="decktype" type="radio">
                     <label for="pokemon5">Grass Pokemon</label>
                 </div>
-                
                 <div id="fighting">
                     <input value="Fighting" id="pokemon6" data-div="fighting" name="decktype" type="radio">
                     <label for="pokemon6">Rock Pokemon</label>
@@ -49,7 +52,6 @@
                 <div id="dark">
                     <input value="Dark" id="pokemon7" data-div="dark" name="decktype" type="radio">
                     <label for="pokemon7" style="color:white">Darkness Pokemon</label>
-                    
                 </div>
                 <div id="fairy">
                     <input value="Fairy" id="pokemon8" data-div="fairy" name="decktype" type="radio">
@@ -67,18 +69,14 @@
         </form>
     </section>
 
+<!--This is a button that generates the deck when selected and loads the next page.-->
     <section class="pokemon-generate">
         <div class="box flex-container align-center-middle flex-dir-column">
-        <button id="pokemon-button" type="button" data-open="exampleModal1" class="button social facebook">Submit</button> 
-    
-    
+        <button id="pokemon-button" type="button" data-open="exampleModal1" class="button social facebook">Submit</button>   
     </div>
     </section>
-
-    
-
-
-
+ 
+<!--Linked scripts.-->
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>

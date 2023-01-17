@@ -6,46 +6,48 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Deck Generator</title>
+<!-- Stylesheets linked. -->
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Google font linked. -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
   </head>
 <body>
 
-
-
+<!-- Header that display saved deck name and a save deck button. -->
+ 
   <div class="callout large" id="gradientH">
     <div class="row column text-center">
       <h1 id="deckName"></h1>
+<!--Buttons that saves current generated deck.-->     
         <button id="saveBtn" class="button medium">Save Deck</button>
     </div>
-   
+<!--Div that contains buttons that link to previously saved decks.--> 
   </div>
   <div class="button-group-option" id="btnGroup">
   </div>
 
   <header class="text-center"></header>
 
- 
-
+<!--Div container that displays all generated cards in foundation's grid format.-->
   <div class="grid-x grid-margin-x grid-padding-x medium-up-8" id="deck-list"></div>
 
-
-
+<!--Modal that displays card infomation.-->
   <div class="reveal" id="exampleModal1" data-reveal>
     <h1 id="modalName" class=""></h1>
     <img id="pokemonPic" src="" width ="283" height ="394">
     <p id="modal-fontsize">Price: $<span id="price"></span></p>
+<!--Button that displays modal when clicked.-->    
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   
+<!--Scripts linked.-->
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
