@@ -3,7 +3,7 @@ A web application that generates a random pokemon deck
 
 ## Description
 The website generates a deck of cards based on type preference.<br>
-A deck of 20 cards is displayed on the second page.<br>
+A deck of 60 cards is displayed on the second page.<br>
 <br>
 As fans of Pokémon, our group felt that there was a market for creating a randomized Pokémon card generator for people who are building their own Pokémon decks. This project helped our team of four learn how to collaborate on a group project and upload our contributions in GitHub in a organized way.<br>
 
