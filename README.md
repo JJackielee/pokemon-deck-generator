@@ -13,8 +13,8 @@ The first Pokémon API is found here: https://pokemontcg.io/ <br>
 The second Pokémon API is found here: https://www.tcgdex.dev/ <br>
 This web application uses the CSS framework called Foundation found here: https://get.foundation/ <br>
 
-![A screen shot of the Pokemon deck generator page 1](/pokemon-deck-generator/images/screenshot1.jpg)
-![A screen shot of the Pokemon deck generator page 2](/pokemon-deck-generator/images/screenshot2.jpg)
+![A screen shot of the Pokemon deck generator page 1](/images/screenshot1.jpg)
+![A screen shot of the Pokemon deck generator page 2](/images/screenshot2.jpg)
 
 ## Credits
 Evan Herman   | Project Manager html, css<br>
