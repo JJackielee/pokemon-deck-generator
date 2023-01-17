@@ -1,6 +1,5 @@
 body {
-    background-image: url("https://cdn.discordapp.com/attachments/968010917843435553/1064016049382625343/pikachu.jpg");
-    
+    background-color: #f6e652;
 }
 
 h2 {
@@ -14,7 +13,6 @@ input {
 
 #deck-name {
     visibility: visible;
-
 }
 
 
