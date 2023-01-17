@@ -88,14 +88,14 @@
 
   #exampleModal1 {
     background-color: #FFF9CD;
-    width: 600px;
-    padding: 5px;
+    width: 625px;
+    padding: 8px;
 }
 
 #price {
-  font-size: 35px;
+  font-size: 30px;
 }
 
 #modal-fontsize {
-  font-size: 35px;
+  font-size: 30px;
 }
