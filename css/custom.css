@@ -88,14 +88,14 @@
 
   #exampleModal1 {
     background-color: #FFF9CD;
-    width: 500px;
+    width: 600px;
     padding: 5px;
 }
 
-#saveBtn {
-
+#price {
+  font-size: 35px;
 }
 
-#price {
-  font-size: 30px;
+#modal-fontsize {
+  font-size: 35px;
 }
